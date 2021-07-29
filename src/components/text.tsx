@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import cn from "classnames"
 
 type TextProps = {
   size: "xs" | "sm" | "md" | "lg" | "xl";
@@ -7,7 +8,7 @@ type TextProps = {
 };
 
 const Text = ({ size = "sm", color = "black", children }: TextProps) => {
-  return <span className={`text ${size} ${color}`}>{children}</span>;
+  return <span className={cn(`text`, size, color)}>{children}</span>;
 };
 
 export default Text;
