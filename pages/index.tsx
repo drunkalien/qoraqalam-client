@@ -5,7 +5,6 @@ import Link from "next/link";
 import Text from "../src/components/Text";
 import Hashtag from "src/components/Hashtag/hashtag";
 import Container from "src/components/Container/container";
-import { CSSProperties } from "react";
 
 export default function Home() {
   const styles = {
