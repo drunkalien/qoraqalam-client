@@ -1,0 +1,36 @@
+@import "../../../styles/variables.scss";
+
+.hashtagContainer {
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.hashtag {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.filled {
+  color: $white;
+}
+
+.filled .pink {
+  background-color: $pink;
+}
+
+.filled .blue {
+  background-color: $blue;
+}
+
+.not-filled {
+  color: $gray;
+}
+
+.not-filled .gray {
+  color: $gray;
+}
+
+.not-filled .pink {
+  color: $pink;
+}
