@@ -1,0 +1,16 @@
+.button {
+  padding: 10px;
+  width: 130px;
+  height: 30px;
+}
+
+/* Variants */
+.outline {
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.fill {
+  border: none;
+}
