@@ -3,3 +3,11 @@ $font-family-base: DM sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
 
 $white: #ffffff;
 $black: #000000;
+
+$sizes: (
+	"xs": 14px,
+	sm: 16px,
+	md: 18px,
+	lg: 24px,
+	xl: 28px
+)

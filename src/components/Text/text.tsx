@@ -9,7 +9,7 @@ type TextProps = {
 };
 
 const Text = ({ size = "sm", color = "black", children }: TextProps) => {
-  return <span className={cn(`text`, classes.size, classes.color)}>{children}</span>;
+  return <span className={cn(classes.text, classes.size, classes.color)}>{children}</span>;
 };
 
 export default Text;
