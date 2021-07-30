@@ -6,6 +6,7 @@ import Text from "../src/components/Text";
 import Hashtag from "src/components/Hashtag/hashtag";
 import Container from "src/components/Container/container";
 import Heading from "src/components/Heading";
+import Searchbar from "src/components/Searchbar Component/searchbar";
 
 export default function Home() {
   const styles = {
@@ -31,6 +32,9 @@ export default function Home() {
       </Container>
       <Container>
         <Heading>Lorem ipsum dolor sit amet</Heading>
+      </Container>
+      <Container>
+        <Searchbar />
       </Container>
       <Link href="/components">
         <a>Components</a>
