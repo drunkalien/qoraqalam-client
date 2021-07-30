@@ -6,7 +6,7 @@ import Text from "../src/components/Text";
 import Hashtag from "src/components/Hashtag/hashtag";
 import Container from "src/components/Container/container";
 import Heading from "src/components/Heading";
-import Searchbar from "src/components/Searchbar Component/searchbar";
+import Searchbar from "src/components/SearchbarComponent";
 
 export default function Home() {
   const styles = {
