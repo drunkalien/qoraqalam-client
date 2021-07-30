@@ -5,6 +5,7 @@ import Link from "next/link";
 import Text from "../src/components/Text";
 import Hashtag from "src/components/Hashtag/hashtag";
 import Container from "src/components/Container/container";
+import Heading from "src/components/Heading";
 
 export default function Home() {
   const styles = {
@@ -27,6 +28,9 @@ export default function Home() {
         <Hashtag color="pink" variant="filled" tagText="karantin" />
         <Hashtag color="pink" variant="not-filled" tagText="karantin" />
         <Hashtag color="gray" variant="not-filled" tagText="karantin" />
+      </Container>
+      <Container>
+        <Heading>Lorem ipsum dolor sit amet</Heading>
       </Container>
       <Link href="/components">
         <a>Components</a>
