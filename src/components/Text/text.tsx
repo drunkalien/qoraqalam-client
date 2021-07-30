@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import cn from "classnames";
-import classes from "./text.module.scss";
+import classes from "./Text.module.scss";
 
 type TextProps = {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
