@@ -1,0 +1,13 @@
+@import "../../../styles/variables.scss";
+
+.logoContainer {
+  display: inline;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  color: $pink;
+}
