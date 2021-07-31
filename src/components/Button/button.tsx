@@ -1,17 +1,17 @@
 import { ReactNode } from "react";
-
-import classes from "./button.module.css";
+import cn from "classnames";
+import classes from "./button.module.scss";
 
 type ButtonProps = {
-  color: "primary" | "secondary";
-  variant: "outline" | "";
+  color: "black" | "white";
+  variant: "outline" | "filled";
   children: ReactNode;
 };
 
 const Button = ({ color, children, variant, ...buttonProps }: ButtonProps) => {
   return (
     <button
-      className={`${classes.button} ${classes[color]} ${classes[variant]}`}
+      className={cn(classes.button, classes[color], classes[variant])}
       {...buttonProps}
     >
       {children}

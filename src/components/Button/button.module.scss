@@ -1,0 +1,35 @@
+@import "../../../styles/_variables.scss";
+
+.button {
+  padding: 10px;
+  width: 130px;
+  height: 30px;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.black {
+  background-color: $black;
+  color: $white;
+  padding: 5px;
+}
+
+.white {
+  background-color: $white;
+  color: $black;
+  padding: 5px;
+}
+
+/* Variants */
+.outline {
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.filled {
+  border: none;
+}
