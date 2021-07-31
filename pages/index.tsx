@@ -7,6 +7,8 @@ import Hashtag from "src/components/Hashtag/hashtag";
 import Container from "src/components/Container/container";
 import Heading from "src/components/Heading";
 import Searchbar from "src/components/SearchbarComponent";
+import Header from "src/components/Header";
+import Card from "src/components/Card";
 
 export default function Home() {
   const styles = {
@@ -15,6 +17,7 @@ export default function Home() {
   };
   return (
     <div>
+      <Header />
       <h1 style={styles}>Qoraqalam</h1>
       <Container>
         <h2>Text Component</h2>
@@ -35,6 +38,23 @@ export default function Home() {
       </Container>
       <Container>
         <Searchbar />
+      </Container>
+      <Container>
+        <Card>
+          <div>
+            <p>Profile</p>
+            <p>star</p>
+          </div>
+          <div>
+            <Heading>Lorem ipsum dolor sit amet</Heading>
+          </div>
+          <div>
+            <Hashtag color="pink" variant="not-filled" tagText="karantin" />
+            <Hashtag color="gray" variant="not-filled" tagText="karantin" />
+            <p>date</p>
+            <p>views</p>
+          </div>
+        </Card>
       </Container>
       <Link href="/components">
         <a>Components</a>
