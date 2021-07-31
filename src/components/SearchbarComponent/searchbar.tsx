@@ -1,4 +1,4 @@
-import Search from "../../assets/icons/search";
+import { Search } from "../../assets/icons";
 import cn from "classnames";
 import classes from "./searchbar.module.scss";
 
