@@ -1,10 +1,13 @@
-import { FunctionComponent } from "react";
-import cs from "classnames";
+import { ReactNode } from "react";
+import cn from "classnames";
 import classes from "./container.module.scss";
-import classNames from "classnames";
 
-const Container: FunctionComponent = ({ children }) => {
-  return <div className={classNames(classes.container)}>{children}</div>;
+type ContainerProps = {
+  children: ReactNode;
+};
+
+const Container = ({ children }: ContainerProps) => {
+  return <div className={cn(classes.container)}>{children}</div>;
 };
 
 export default Container;
