@@ -1,9 +1,7 @@
 import cn from "classnames";
 import classes from "./header.module.scss";
-import Container from "../Container/container";
-import Searchbar from "../SearchbarComponent";
-import Button from "../Button";
 import { Logo } from "../../assets/icons";
+import { Container, Searchbar, Button } from "components";
 
 const Header = () => {
   return (
