@@ -10,7 +10,7 @@ const Header = () => {
     <Container>
       <div className={cn(classes.logoContainer)}>
         <Logo />
-        qoraqalam<span className={cn(classes.dot)}>.</span>
+        <span className={classes["logo-text"]}>qoraqalam<span className={cn(classes.dot)}>.</span></span>
       </div>
       <Searchbar />
       <Button color="black" variant="filled">

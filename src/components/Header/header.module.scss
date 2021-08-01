@@ -1,11 +1,15 @@
-@import "../../../styles/variables.scss";
+@import "~/styles/variables.scss";
 
 .logoContainer {
   display: inline;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   display: flex;
   align-items: center;
+  .logo-text {
+    font-family: $font-family-fat;
+		font-weight: 200;
+  }
 }
 
 .dot {
