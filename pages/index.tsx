@@ -1,8 +1,18 @@
-import { PostCard, Hashtag, Page } from "components";
-import { Fragment } from "react";
+import { PostCard, Hashtag, Page, Text } from "components";
+import posts from "../posts";
 
 export default function Home() {
   const tags = [
+    "corona",
+    "virus",
+    "coding",
+    "technology",
+    "blog",
+    "qoraqalam",
+    "internet",
+    "challange",
+    "development",
+    "software",
     "corona",
     "virus",
     "coding",
@@ -18,56 +28,24 @@ export default function Home() {
   return (
     <Page
       right={
-        <Fragment>
+        <div className="sticky">
+          <p className="mb-10">
+            <Text size="22">Heshteglar</Text>
+          </p>
           {tags.map((tag, index) => (
             <div key={index}>
               <Hashtag>{tag}</Hashtag>
             </div>
           ))}
-        </Fragment>
+        </div>
       }
     >
       <div>
-        <PostCard
-          date="1"
-          starred
-          tagList={["karantin", "corona"]}
-          title="Karantinga to’g’ri va samarali rioya qilish bo’yicha ko’rsatma"
-          user="sas"
-          views={23}
-        />
-        <PostCard
-          date="1"
-          starred
-          tagList={["karantin", "corona"]}
-          title="Karantinga to’g’ri va samarali rioya qilish bo’yicha ko’rsatma"
-          user="sas"
-          views={23}
-        />
-        <PostCard
-          date="1"
-          starred
-          tagList={["karantin", "corona"]}
-          title="Karantinga to’g’ri va samarali rioya qilish bo’yicha ko’rsatma"
-          user="sas"
-          views={23}
-        />
-        <PostCard
-          date="1"
-          starred
-          tagList={["karantin", "corona"]}
-          title="Karantinga to’g’ri va samarali rioya qilish bo’yicha ko’rsatma"
-          user="sas"
-          views={23}
-        />
-        <PostCard
-          date="1"
-          starred
-          tagList={["karantin", "corona"]}
-          title="Karantinga to’g’ri va samarali rioya qilish bo’yicha ko’rsatma"
-          user="sas"
-          views={23}
-        />
+        {posts.map(({ ...postProps }, index) => (
+          <div key={index} className="mb-20">
+            <PostCard {...postProps} />
+          </div>
+        ))}
       </div>
     </Page>
   );

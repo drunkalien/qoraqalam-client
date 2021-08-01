@@ -8,6 +8,7 @@ type Props = {
   bold?: boolean;
   italic?: boolean;
   children: ReactNode;
+  className?: string;
 };
 
 const Text = ({
@@ -16,11 +17,12 @@ const Text = ({
   bold = false,
   italic = false,
   children,
+  className,
 }: Props) => {
   return (
     <span
       style={{ fontSize: size + "px" }}
-      className={cn(classes.text, classes[color], {
+      className={cn(className, classes.text, classes[color], {
         ["bold"]: bold,
         ["italic"]: italic,
       })}

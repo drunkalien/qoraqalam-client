@@ -3,6 +3,7 @@ import cn from "classnames";
 import classes from "./postcard.module.scss";
 import { Hashtag, Heading, Icon, User } from "components";
 import Link from "next/link";
+import Text from "components/Text";
 
 type User = any;
 type Tag = string;
@@ -46,11 +47,15 @@ const Card = ({ date, starred, tagList, title, user, views }: Props) => {
         <div className={classes.details}>
           <div className={classes.calendar}>
             <Icon.Calendar />
-            {date}
+            <Text color="gray" size="14">
+              {date}
+            </Text>
           </div>
           <div className={classes.views}>
             <Icon.Eye />
-            {views}
+            <Text color="gray" size="14">
+              {views}
+            </Text>
           </div>
         </div>
       </div>
