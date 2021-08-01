@@ -1,5 +1,14 @@
 @import "~/styles/variables.scss";
 
+.container {
+  max-width: $page-width;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 15px;
+}
+
 .logoContainer {
   font-size: 32px;
   font-weight: 700;
@@ -7,7 +16,7 @@
   align-items: center;
   .logo-text {
     font-family: $font-family-fat;
-		font-weight: 200;
+    font-weight: 200;
   }
 }
 

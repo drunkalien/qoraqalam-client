@@ -12,6 +12,7 @@ const Button = ({ color, children, variant, ...buttonProps }: Props) => {
   return (
     <button
       className={cn(classes.button, classes[color], classes[variant])}
+      type="button"
       {...buttonProps}
     >
       {children}

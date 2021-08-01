@@ -1,0 +1,39 @@
+@import "~styles/mixins";
+
+.card {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  width: 100%;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .middle {
+    padding: 8px 0;
+    @media (max-width: 800px) {
+      padding-right: 0;
+    }
+    padding-right: 80px;
+    @include line-clamp(2);
+  }
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .details {
+      display: flex;
+      .calendar,
+      .views {
+        display: flex;
+        align-items: center;
+        svg {
+          margin-right: 6px;
+        }
+      }
+      .views {
+        margin-left: 20px;
+      }
+    }
+  }
+}

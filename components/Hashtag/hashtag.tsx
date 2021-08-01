@@ -2,15 +2,19 @@ import cn from "classnames";
 import classes from "./hashtag.module.scss";
 
 type Props = {
-  color: "pink" | "blue" | "gray";
-  variant: "filled" | "transparent";
-  tagText: string;
+  color?: "pink" | "blue" | "gray";
+  variant?: "filled" | "transparent";
+  children: string;
 };
 
-const Hashtag = ({ color, variant, tagText }: Props) => {
+const Hashtag = ({
+  color = "gray",
+  variant = "transparent",
+  children,
+}: Props) => {
   return (
     <div className={cn(classes.hashtagContainer, classes[variant])}>
-      <p className={cn(classes.hashtag, classes[color])}>#{tagText}</p>
+      <p className={cn(classes.hashtag, classes[color])}>#{children}</p>
     </div>
   );
 };

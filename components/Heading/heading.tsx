@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Heading = ({ children }: Props) => {
-  return <div className={cn(classes.heading)}>{children}</div>;
+  return <h2 className={cn(classes.heading)}>{children}</h2>;
 };
 
 export default Heading;

@@ -4,7 +4,7 @@ import classes from "./Text.module.scss";
 
 type Props = {
   size?: "14" | "16" | "22";
-  color?: "white" | "black";
+  color?: "white" | "black" | "gray";
   bold?: boolean;
   italic?: boolean;
   children: ReactNode;
@@ -25,7 +25,7 @@ const Text = ({
         ["italic"]: italic,
       })}
     >
-      {children} {" "}
+      {children}
     </span>
   );
 };

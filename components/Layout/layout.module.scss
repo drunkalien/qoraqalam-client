@@ -1,0 +1,19 @@
+@import "~/styles/variables.scss";
+
+.container {
+  max-width: $page-width;
+  margin: 0 auto;
+  padding: 0 15px;
+  &.sided {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 15px;
+    .right {
+      grid-area: 1 / 1 / 2 / 3;
+    }
+  }
+  &.mini {
+    max-width: $mini-page-width;
+  }
+}

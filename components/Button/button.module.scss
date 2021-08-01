@@ -1,26 +1,19 @@
 @import "~/styles/variables";
 
 .button {
-  padding: 10px;
-  width: 130px;
-  height: 30px;
+  padding: 8px 15px;
   border-radius: 5px;
-
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 
 .black {
   background-color: $black;
   color: $white;
-  padding: 5px;
 }
 
 .white {
   background-color: $white;
   color: $black;
-  padding: 5px;
 }
 
 /* Variants */
