@@ -3,7 +3,7 @@ import classes from "./hashtag.module.scss";
 
 type Props = {
   color: "pink" | "blue" | "gray";
-  variant: "filled" | "not-filled";
+  variant: "filled" | "transparent";
   tagText: string;
 };
 

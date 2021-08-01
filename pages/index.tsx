@@ -30,8 +30,8 @@ export default function Home() {
         <h2>Hashtag components</h2>
         <Hashtag color="blue" variant="filled" tagText="koronavirus" />
         <Hashtag color="pink" variant="filled" tagText="karantin" />
-        <Hashtag color="pink" variant="not-filled" tagText="karantin" />
-        <Hashtag color="gray" variant="not-filled" tagText="karantin" />
+        <Hashtag color="pink" variant="transparent" tagText="karantin" />
+        <Hashtag color="gray" variant="transparent" tagText="karantin" />
       </Container>
       <Container>
         <Heading>Lorem ipsum dolor sit amet</Heading>
@@ -49,8 +49,8 @@ export default function Home() {
             <Heading>Lorem ipsum dolor sit amet</Heading>
           </div>
           <div>
-            <Hashtag color="pink" variant="not-filled" tagText="karantin" />
-            <Hashtag color="gray" variant="not-filled" tagText="karantin" />
+            <Hashtag color="pink" variant="transparent" tagText="karantin" />
+            <Hashtag color="gray" variant="transparent" tagText="karantin" />
             <p>date</p>
             <p>views</p>
           </div>

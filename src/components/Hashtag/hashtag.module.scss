@@ -4,7 +4,7 @@
   display: inline-block;
   box-sizing: border-box;
   font-size: 14px;
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .hashtag {
@@ -14,24 +14,20 @@
 
 .filled {
   color: $white;
+  .pink {
+    background-color: $pink;
+  }
+  .blue {
+    background-color: $blue;
+  }
 }
 
-.filled .pink {
-  background-color: $pink;
-}
-
-.filled .blue {
-  background-color: $blue;
-}
-
-.not-filled {
+.transparent {
   color: $gray;
-}
-
-.not-filled .gray {
-  color: $gray;
-}
-
-.not-filled .pink {
-  color: $pink;
+  .gray {
+    color: $gray;
+  }
+  .pink {
+    color: $pink;
+  }
 }
