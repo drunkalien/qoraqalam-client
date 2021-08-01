@@ -59,9 +59,6 @@ export default function Home() {
           views={299}
         />
       </Container>
-      <Link href="/components">
-        <a>Components</a>
-      </Link>
     </div>
   );
 }
