@@ -2,11 +2,11 @@ import { ReactNode } from "react";
 import cn from "classnames";
 import classes from "./heading.module.scss";
 
-type HeadingProps = {
+type Props = {
   children: ReactNode;
 };
 
-const Heading = ({ children }: HeadingProps) => {
+const Heading = ({ children }: Props) => {
   return <div className={cn(classes.heading)}>{children}</div>;
 };
 

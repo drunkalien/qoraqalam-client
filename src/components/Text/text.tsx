@@ -2,13 +2,13 @@ import { ReactNode } from "react";
 import cn from "classnames";
 import classes from "./Text.module.scss";
 
-type TextProps = {
+type Props = {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   color?: "white" | "black";
   children: ReactNode;
 };
 
-const Text = ({ size = "sm", color = "black", children }: TextProps) => {
+const Text = ({ size = "sm", color = "black", children }: Props) => {
   return (
     <span className={cn(classes.text, classes[size], classes[color])}>
       {children}
