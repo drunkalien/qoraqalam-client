@@ -9,6 +9,7 @@ type Props = {
   italic?: boolean;
   children: ReactNode;
   className?: string;
+	lineHeight?: number | string;
 };
 
 const Text = ({
@@ -18,10 +19,11 @@ const Text = ({
   italic = false,
   children,
   className,
+	lineHeight
 }: Props) => {
   return (
     <span
-      style={{ fontSize: size + "px" }}
+      style={{ fontSize: size + "px", lineHeight: lineHeight }}
       className={cn(className, classes.text, classes[color], {
         ["bold"]: bold,
         ["italic"]: italic,
