@@ -5,3 +5,10 @@
     margin-right: 10px;
   }
 }
+
+.paragraph-container {
+  & > * {
+    margin-top: 25px;
+    display: inline-block;
+  }
+}
