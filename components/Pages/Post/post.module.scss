@@ -1,0 +1,7 @@
+.hashtag-container {
+  display: flex;
+  margin-top: 1rem;
+  & > * {
+    margin-right: 10px;
+  }
+}

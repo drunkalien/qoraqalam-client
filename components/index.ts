@@ -9,3 +9,6 @@ export { default as Input } from "./Input";
 export { default as Searchbar } from "./Searchbar";
 export { default as Page } from "./Layout";
 export { default as User } from "./User";
+
+// Pages
+export { HomePage, PostPage } from "./Pages";
