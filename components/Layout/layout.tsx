@@ -1,5 +1,5 @@
 import { Fragment, ReactNode } from "react";
-import { Header } from "components";
+import { Header, Footer } from "components";
 import Head from "next/head";
 import cn from "classnames";
 import classes from "./layout.module.scss";
@@ -28,6 +28,7 @@ const Layout = ({ title, children, right }: Props) => (
       {children}
       {!!right && <aside className="right">{right}</aside>}
     </main>
+    <Footer />
   </Fragment>
 );
 
