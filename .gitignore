@@ -33,4 +33,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+<<<<<<< HEAD
 .idea
+=======
+# editor
+.idea
+.vscode
+>>>>>>> 5e5baedbacbc65d18a735720a45481e0c8280231
