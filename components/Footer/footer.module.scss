@@ -1,0 +1,36 @@
+@import "~/styles/variables.scss";
+
+.footer {
+  max-width: 100%;
+  margin-top: auto;
+  background-color: $black;
+}
+
+.footer a {
+  color: $white;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: $page-width;
+  color: $white;
+  font-family: $font-family-fat;
+}
+
+.footer-list {
+  margin: 0 100px;
+}
+
+.footer-list li {
+  margin: 0 10px;
+}
+
+.container,
+.first-child,
+.second-child,
+.footer-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
