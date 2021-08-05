@@ -4,19 +4,12 @@ import classes from "./postcard.module.scss";
 import { Hashtag, Heading, Icon, User } from "components";
 import Link from "next/link";
 import Text from "components/Text";
+import { tPost, tTag } from "types";
 
 type User = any;
 type Tag = string;
 
-type Props = {
-  title: string;
-  user: User;
-  tagList: Tag[];
-  date: Date | string;
-  views: number;
-  starred: boolean;
-  id: number;
-};
+type Props = tPost & { id: number };
 
 const Card = ({ date, starred, tagList, title, user, views, id }: Props) => {
   const [activeStar, setActiveStar] = useState(starred || false);
@@ -39,9 +32,11 @@ const Card = ({ date, starred, tagList, title, user, views, id }: Props) => {
       </div>
       <div className={classes.bottom}>
         <div className={classes.tagList}>
-          {tagList.map((tag, index) => (
+          {tagList.map(({ children, variant, color }, index) => (
             <span key={index} className="mr-5">
-              <Hashtag color="pink">{tag}</Hashtag>
+              <Hashtag color={color} variant={variant}>
+                {children}
+              </Hashtag>
             </span>
           ))}
         </div>
