@@ -1,11 +1,8 @@
 import cn from "classnames";
+import { tTag } from "types";
 import classes from "./hashtag.module.scss";
 
-type Props = {
-  color?: "pink" | "blue" | "gray";
-  variant?: "filled" | "transparent";
-  children: string;
-};
+type Props = tTag & {};
 
 const Hashtag = ({
   color = "gray",
