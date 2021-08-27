@@ -19,9 +19,22 @@ const Header = () => {
         </a>
       </Link>
       <Searchbar />
-      <Button color="black" variant="filled">
-        Maqola yozish
-      </Button>
+      <div className={classes.buttons}>
+        <Link href="login">
+          <a>
+            <Button color="white" variant="outline">
+              Kirish
+            </Button>
+          </a>
+        </Link>
+        <Link href="signup">
+          <a>
+            <Button color="black" variant="filled">
+              Roʻyxatdan oʻtish
+            </Button>
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };
