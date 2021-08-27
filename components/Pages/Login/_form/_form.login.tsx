@@ -1,6 +1,7 @@
 import cn from "classnames";
-import classes from "./_sign-up.module.scss";
+import classes from "../_login.module.scss";
 import { Button, Input } from "components";
+import Link from "next/link";
 
 const Form = () => {
   return (
@@ -20,6 +21,12 @@ const Form = () => {
         <Button isLarge color="blue" type="button" className="mt-5">
           Davom etish
         </Button>
+        <p className="text-center mt-10 fz-14">
+          Akkauntingiz yoʻqmi? unda <br />
+          <Link href="/signup">
+            <a>Roʻyxatdan oʻting</a>
+          </Link>
+        </p>
       </form>
     </div>
   );
