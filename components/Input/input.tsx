@@ -1,18 +1,18 @@
 import cn from "classnames";
+import { HTMLProps } from "react";
 import classes from "./input.module.scss";
 
-type PropType = {
-  label: "Email" | "Email or Username" | "Password" | "Username";
-  type?: "email" | "password" | "text";
+type Props = HTMLProps<HTMLInputElement> & {
+  label: string;
 };
 
-const Input = ({ label, type = "text", ...inputProps }: PropType) => {
+const Input = ({ label, ...inputProps }: Props) => {
   return (
     <div className={cn(classes["input-container"])}>
       <label className={cn(classes.label)} htmlFor={label.toLowerCase()}>
         {label}
       </label>
-      <input className={cn(classes.input)} type={type} {...inputProps} />
+      <input className={cn(classes.input)} {...inputProps} />
     </div>
   );
 };
