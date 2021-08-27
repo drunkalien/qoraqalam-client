@@ -24,7 +24,7 @@ const Card = ({ date, starred, tagList, title, user, views, id }: Props) => {
         />
       </div>
       <div className={classes.middle}>
-        <Link href={`posts/${id}`}>
+        <Link href={`/posts/${id}`}>
           <a style={{ color: "#000" }}>
             <Heading>{title}</Heading>
           </a>
