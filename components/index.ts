@@ -10,6 +10,7 @@ export { default as Searchbar } from "./Searchbar";
 export { default as Page } from "./Layout";
 export { default as User } from "./User";
 export { default as Footer } from "./Footer";
+export { default as Form } from "./Form";
 
 // Pages
-export { HomePage, PostPage } from "./Pages";
+export { HomePage, PostPage, LoginPage } from "./Pages";
