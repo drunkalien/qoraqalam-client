@@ -20,14 +20,14 @@ const Header = () => {
       </Link>
       <Searchbar />
       <div className={classes.buttons}>
-        <Link href="login">
+        <Link href="/login">
           <a>
             <Button color="white" variant="outline">
               Kirish
             </Button>
           </a>
         </Link>
-        <Link href="signup">
+        <Link href="/signup">
           <a>
             <Button color="black" variant="filled">
               Roʻyxatdan oʻtish
