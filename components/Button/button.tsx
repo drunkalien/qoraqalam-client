@@ -1,18 +1,34 @@
-import { ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import cn from "classnames";
 import classes from "./button.module.scss";
 
-type Props = {
-  color: "black" | "white";
-  variant: "outline" | "filled";
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+  color?: "black" | "white" | "blue";
+  variant?: "outline" | "filled";
+  isLarge?: boolean;
+  className?: string;
   children: ReactNode;
 };
 
-const Button = ({ color, children, variant, ...buttonProps }: Props) => {
+const Button = ({
+  color = "black",
+  children,
+  variant = "filled",
+  isLarge = false,
+  className,
+  ...buttonProps
+}: Props) => {
   return (
     <button
-      className={cn(classes.button, classes[color], classes[variant])}
-      type="button"
+      className={cn(
+        className,
+        classes.button,
+        classes[color],
+        classes[variant],
+        {
+          [classes.large]: isLarge,
+        }
+      )}
       {...buttonProps}
     >
       {children}

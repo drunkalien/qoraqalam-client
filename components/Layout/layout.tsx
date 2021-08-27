@@ -8,6 +8,7 @@ type Props = {
   title?: string;
   children: ReactNode;
   right?: ReactNode;
+  background?: "gray" | "white";
   // left?: ReactNode;
 };
 

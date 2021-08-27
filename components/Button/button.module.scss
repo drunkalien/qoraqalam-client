@@ -4,25 +4,55 @@
   padding: 8px 15px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.25s ease, border 0.2s ease;
+  &:focus {
+    outline-color: rgba(0, 0, 0, 0.438);
+    outline-width: 1px;
+    outline-style: dashed;
+    outline-offset: 1px;
+    filter: saturate(0.8);
+  }
 }
 
 .black {
   background-color: $black;
   color: $white;
+  &:hover {
+    background-color: $black_hovered;
+  }
 }
 
 .white {
   background-color: $white;
   color: $black;
+  &:hover {
+    background-color: $white_hovered;
+    border-color: transparent;
+  }
+}
+
+.blue {
+  background-color: $blue !important;
+  color: $white !important;
+  border: 0 !important;
+  &:hover,
+  &:focus {
+    background: $blue_hovered !important;
+  }
+}
+
+.large {
+  padding: 12px;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 /* Variants */
 .outline {
-  border: 1px solid #000;
-  background-color: #fff;
-  color: #000;
-}
-
-.filled {
-  border: none;
+  border: 1px solid $black !important;
+  &:hover {
+    border-color: $gray !important;
+  }
+  background-color: $white;
+  color: $black;
 }

@@ -1,7 +1,12 @@
-import { Form } from "components";
+import { Page } from "components";
+import SignupForm from "./_signup-form";
 
 const Login = () => {
-  return <Form />;
+  return (
+    <Page>
+      <SignupForm />
+    </Page>
+  );
 };
 
 export default Login;

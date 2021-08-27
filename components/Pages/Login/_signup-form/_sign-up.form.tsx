@@ -1,7 +1,6 @@
 import cn from "classnames";
-import classes from "./form.module.scss";
-import Input from "./Input";
-import Button from "./FormButton/button";
+import classes from "./_sign-up.module.scss";
+import { Button, Input } from "components";
 
 const Form = () => {
   return (
@@ -10,7 +9,9 @@ const Form = () => {
         <h1 className={cn(classes["form-heading"])}>Login</h1>
         <Input label="Email or Username" type="email" />
         <Input label="Password" type="password" />
-        <Button />
+        <Button isLarge color="blue" type="button" className="mt-5">
+          Davom etish
+        </Button>
       </form>
     </div>
   );
