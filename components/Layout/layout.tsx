@@ -9,7 +9,6 @@ type Props = {
   children: ReactNode;
   right?: ReactNode;
   background?: "gray" | "white";
-  // left?: ReactNode;
 };
 
 const Layout = ({ title, children, right }: Props) => (
@@ -25,7 +24,6 @@ const Layout = ({ title, children, right }: Props) => (
         [classes["mini"]]: !right,
       })}
     >
-      {/* {!!left && <aside className="left">{left}</aside>} */}
       {children}
       {!!right && <aside className="right">{right}</aside>}
     </main>
