@@ -13,12 +13,25 @@ const Editor = () => {
     setState(value);
   }
 
-  return <ReactQuill theme="snow" value={state} onChange={handleChange} />;
+  return (
+    <ReactQuill
+      theme="snow"
+      value={state}
+      onChange={handleChange}
+      onChangeSelection={(e) => {
+        const selectedText = state.slice(
+          e?.index + 3,
+          e?.index + e?.length + 3
+        );
+        console.log(selectedText);
+      }}
+    />
+  );
 };
 
 const modules = {
   tollbar: [
-    [{ header: [1, 2, false] }],
+    [{ header: [1, 2, true] }],
     ["bold", "italic", "underline", "strike", "blockquote"],
     [
       { list: "ordered" },
