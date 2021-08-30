@@ -5,9 +5,10 @@ import * as yup from "yup";
 import classes from "../_login.module.scss";
 import { Button, Input } from "components";
 import Link from "next/link";
+import axios from "axios";
 
 type Data = {
-  emailOrUsernam: string;
+  emailOrUsername: string;
   password: string;
 };
 
@@ -26,7 +27,19 @@ const Form = () => {
   });
 
   function submit(data: Data) {
-    console.log(data);
+    let endpoint;
+    if (data.emailOrUsername.includes("@")) {
+      endpoint = "loginByEmail";
+    } else {
+      endpoint = "loginByUsername";
+    }
+    axios
+      .post(`http://localhost:5000/api/v1/auth/${endpoint}`, data)
+      .then((response) => {
+        window.localStorage.setItem("token", response.data.doc.token);
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
   }
 
   return (

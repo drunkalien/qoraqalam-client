@@ -5,6 +5,7 @@ import * as yup from "yup";
 import classes from "../_signup.module.scss";
 import { Button, Input } from "components";
 import Link from "next/link";
+import axios from "axios";
 
 type Data = {
   email: string;
@@ -37,7 +38,14 @@ const Form = () => {
   });
 
   function submit(data: Data) {
-    console.log(data);
+    axios
+      .post("http://localhost:5000/api/v1/auth/signup", data)
+      .then((response) => {
+        window.localStorage.setItem("token", response.data.doc.token);
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+    // console.log(data);
   }
 
   return (
