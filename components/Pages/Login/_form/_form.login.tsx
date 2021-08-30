@@ -35,7 +35,7 @@ const Form = () => {
         <h1 className={cn(classes["form-heading"])}>Kirish</h1>
         <Input
           label="Email yoki username"
-          type="email"
+          type="text"
           placeholder="bu@misol.uz"
           style={errors.emailOrUsername ? { borderColor: "red" } : undefined}
           {...register("emailOrUsername")}
