@@ -5,7 +5,6 @@ import * as yup from "yup";
 import classes from "../_signup.module.scss";
 import { Button, Input } from "components";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 type Data = {
   email: string;
@@ -52,9 +51,9 @@ const Form = () => {
           style={errors.email ? { borderColor: "red" } : undefined}
           {...register("email")}
         />
-        <p className={cn(classes["error-msg"])}>
-          {errors.email ? errors.email?.message : null}
-        </p>
+        {errors.email ? (
+          <p className={cn(classes["error-msg"])}>{errors.email?.message}</p>
+        ) : null}
 
         <Input
           label="Username"
@@ -63,9 +62,9 @@ const Form = () => {
           style={errors.username ? { borderColor: "red" } : undefined}
           {...register("username")}
         />
-        <p className={cn(classes["error-msg"])}>
-          {errors.username ? errors.username?.message : null}
-        </p>
+        {errors.username ? (
+          <p className={cn(classes["error-msg"])}>{errors.username?.message}</p>
+        ) : null}
 
         <Input
           label="Parol"
@@ -74,9 +73,9 @@ const Form = () => {
           style={errors.password ? { borderColor: "red" } : undefined}
           {...register("password")}
         />
-        <p className={cn(classes["error-msg"])}>
-          {errors.password ? errors.password?.message : null}
-        </p>
+        {errors.password ? (
+          <p className={cn(classes["error-msg"])}>{errors.password?.message}</p>
+        ) : null}
 
         <Input
           label="Parolni tasdiqlash"
@@ -85,9 +84,9 @@ const Form = () => {
           style={errors.passwordConfirm ? { borderColor: "red" } : undefined}
           {...register("passwordConfirm")}
         />
-        <p className={cn(classes["error-msg"])}>
-          {errors.passwordConfirm ? "Parollar mos kelmadi!" : null}
-        </p>
+        {errors.passwordConfirm ? (
+          <p className={cn(classes["error-msg"])}>{"Parollar mos kelmadi!"}</p>
+        ) : null}
 
         <Button isLarge color="blue" type="submit" className="mt-5">
           Davom etish
