@@ -12,4 +12,4 @@ export { default as User } from "./User";
 export { default as Footer } from "./Footer";
 
 // Pages
-export { HomePage, PostPage, LoginPage } from "./Pages";
+export { HomePage, PostPage, LoginPage, SignupPage } from "./Pages";
