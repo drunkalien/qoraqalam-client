@@ -51,7 +51,7 @@ const Form = () => {
   return (
     <div className={cn(classes["form-container"])}>
       <form className={cn(classes.form)} onSubmit={handleSubmit(submit)}>
-        <h1 className={cn(classes["form-heading"])}>Kirish</h1>
+        <h1 className={cn(classes["form-heading"])}>Roʻyxatdan oʻtish</h1>
         <Input
           label="Email"
           type="text"
@@ -99,7 +99,7 @@ const Form = () => {
         <Button isLarge color="blue" type="submit" className="mt-5">
           Davom etish
         </Button>
-        <p className="text-center mt-10 fz-14">
+        <p className="mt-10 text-center fz-14">
           Akkauntingiz bormi? unda <br />
           <Link href="/login">
             <a>Kiring</a>

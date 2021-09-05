@@ -6,8 +6,9 @@ import classes from "../_login.module.scss";
 import { Button, Input } from "components";
 import Link from "next/link";
 import axios from "axios";
+import { useAPIMutation } from "hooks";
 
-type Data = {
+type FormValues = {
   emailOrUsername: string;
   password: string;
 };
@@ -22,29 +23,30 @@ const Form = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
 
-  function submit(data: Data) {
-    let endpoint;
-    if (data.emailOrUsername.includes("@")) {
-      endpoint = "loginByEmail";
+  // mutations
+  const loginByEmailMutation = useAPIMutation({ url: "auth/loginByEmail" });
+  const loginByUserNameMutation = useAPIMutation({
+    url: "auth/loginByUsername",
+  });
+
+  const onSubmit = handleSubmit(({ emailOrUsername, password }) => {
+    let mutation;
+    if (emailOrUsername.includes("@")) {
+      mutation = loginByEmailMutation;
     } else {
-      endpoint = "loginByUsername";
+      mutation = loginByUserNameMutation;
     }
-    axios
-      .post(`http://localhost:5000/api/v1/auth/${endpoint}`, data)
-      .then((response) => {
-        window.localStorage.setItem("token", response.data.doc.token);
-        console.log(response);
-      })
-      .catch((err) => console.log(err));
-  }
+
+    mutation.mutate({ emailOrUsername, password });
+  });
 
   return (
     <div className={cn(classes["form-container"])}>
-      <form className={cn(classes.form)} onSubmit={handleSubmit(submit)}>
+      <form className={cn(classes.form)} onSubmit={onSubmit}>
         <h1 className={cn(classes["form-heading"])}>Kirish</h1>
         <Input
           label="Email yoki username"
@@ -73,7 +75,7 @@ const Form = () => {
         <Button isLarge color="blue" type="submit" className="mt-5">
           Davom etish
         </Button>
-        <p className="text-center mt-10 fz-14">
+        <p className="mt-10 text-center fz-14">
           Akkauntingiz yoʻqmi? unda <br />
           <Link href="/signup">
             <a>Roʻyxatdan oʻting</a>
