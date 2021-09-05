@@ -17,11 +17,7 @@ const Card = ({ date, starred, tagList, title, user, views, id }: Props) => {
     <div className={cn(classes.card)} title={title}>
       <div className={classes.top}>
         <User username="zieu2000" subs={55} />
-        <Icon.Star
-          className="pointer"
-          onClick={() => setActiveStar(!activeStar)}
-          active={activeStar}
-        />
+        <Icon.Star className="pointer" onClick={() => setActiveStar(!activeStar)} active={activeStar} />
       </div>
       <div className={classes.middle}>
         <Link href={`/posts/${id}`}>

@@ -23,9 +23,7 @@ const schema = yup.object().shape({
     .lowercase()
     .required("Username majburiy!"),
   password: yup.string().min(8, "Parol kamida 8ta belgi bo'lishi kerak"),
-  passwordConfirm: yup
-    .string()
-    .oneOf([yup.ref("password"), "Parollar mos kelmadi!"]),
+  passwordConfirm: yup.string().oneOf([yup.ref("password"), "Parollar mos kelmadi!"]),
 });
 
 const Form = () => {
@@ -58,9 +56,7 @@ const Form = () => {
           style={errors.email ? { borderColor: "red" } : undefined}
           {...register("email")}
         />
-        {errors.email ? (
-          <p className={cn(classes["error-msg"])}>{errors.email?.message}</p>
-        ) : null}
+        {errors.email ? <p className={cn(classes["error-msg"])}>{errors.email?.message}</p> : null}
 
         <Input
           label="Username"
@@ -69,9 +65,7 @@ const Form = () => {
           style={errors.username ? { borderColor: "red" } : undefined}
           {...register("username")}
         />
-        {errors.username ? (
-          <p className={cn(classes["error-msg"])}>{errors.username?.message}</p>
-        ) : null}
+        {errors.username ? <p className={cn(classes["error-msg"])}>{errors.username?.message}</p> : null}
 
         <Input
           label="Parol"
@@ -80,9 +74,7 @@ const Form = () => {
           style={errors.password ? { borderColor: "red" } : undefined}
           {...register("password")}
         />
-        {errors.password ? (
-          <p className={cn(classes["error-msg"])}>{errors.password?.message}</p>
-        ) : null}
+        {errors.password ? <p className={cn(classes["error-msg"])}>{errors.password?.message}</p> : null}
 
         <Input
           label="Parolni tasdiqlash"
@@ -91,9 +83,7 @@ const Form = () => {
           style={errors.passwordConfirm ? { borderColor: "red" } : undefined}
           {...register("passwordConfirm")}
         />
-        {errors.passwordConfirm ? (
-          <p className={cn(classes["error-msg"])}>{"Parollar mos kelmadi!"}</p>
-        ) : null}
+        {errors.passwordConfirm ? <p className={cn(classes["error-msg"])}>{"Parollar mos kelmadi!"}</p> : null}
 
         <Button isLarge color="blue" type="submit" className="mt-5">
           Davom etish

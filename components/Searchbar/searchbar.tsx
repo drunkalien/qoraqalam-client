@@ -5,11 +5,7 @@ import classes from "./searchbar.module.scss";
 const Searchbar = ({ ...props }) => {
   return (
     <div className={cn(classes.searchbarContainer)}>
-      <input
-        className={cn(classes.searchbar)}
-        {...props}
-        placeholder="Istalgan maqolani izlang..."
-      />
+      <input className={cn(classes.searchbar)} {...props} placeholder="Istalgan maqolani izlang..." />
       <Search />
     </div>
   );

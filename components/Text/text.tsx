@@ -9,18 +9,10 @@ type Props = {
   italic?: boolean;
   children: ReactNode;
   className?: string;
-	lineHeight?: number | string;
+  lineHeight?: number | string;
 };
 
-const Text = ({
-  size = "22",
-  color = "black",
-  bold = false,
-  italic = false,
-  children,
-  className,
-	lineHeight
-}: Props) => {
+const Text = ({ size = "22", color = "black", bold = false, italic = false, children, className, lineHeight }: Props) => {
   return (
     <span
       style={{ fontSize: size + "px", lineHeight: lineHeight }}

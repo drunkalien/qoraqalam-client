@@ -10,25 +10,12 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
 };
 
-const Button = ({
-  color = "black",
-  children,
-  variant = "filled",
-  isLarge = false,
-  className,
-  ...buttonProps
-}: Props) => {
+const Button = ({ color = "black", children, variant = "filled", isLarge = false, className, ...buttonProps }: Props) => {
   return (
     <button
-      className={cn(
-        className,
-        classes.button,
-        classes[color],
-        classes[variant],
-        {
-          [classes.large]: isLarge,
-        }
-      )}
+      className={cn(className, classes.button, classes[color], classes[variant], {
+        [classes.large]: isLarge,
+      })}
       {...buttonProps}
     >
       {children}

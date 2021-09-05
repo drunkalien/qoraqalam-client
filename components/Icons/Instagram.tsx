@@ -2,13 +2,7 @@ import React from "react";
 
 const Instagram = () => {
   return (
-    <svg
-      width="24"
-      height="25"
-      viewBox="0 0 24 25"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M17 2.88623H7C4.23858 2.88623 2 5.12481 2 7.88623V17.8862C2 20.6477 4.23858 22.8862 7 22.8862H17C19.7614 22.8862 22 20.6477 22 17.8862V7.88623C22 5.12481 19.7614 2.88623 17 2.88623Z"
         stroke="white"
@@ -21,12 +15,7 @@ const Instagram = () => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M17.5 7.38623H17.51"
-        stroke="white"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M17.5 7.38623H17.51" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 };

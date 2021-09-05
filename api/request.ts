@@ -19,7 +19,7 @@ requestInstance.interceptors.request.use(
     if (error.response?.status === 401) {
       router.push("/login");
     }
-  }
+  },
 );
 
 export default requestInstance;
