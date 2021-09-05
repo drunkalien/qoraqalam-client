@@ -4,7 +4,7 @@ import { request } from "api";
 
 type Args<Data, Error> = {
   url: string;
-  params: object;
+  params?: object;
   options?: UseQueryOptions<AxiosResponse<Data>, Error>;
 };
 
