@@ -34,3 +34,18 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.logo {
+  font-family: $font-family-fat;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  .logo-text {
+    .text {
+      color: $white !important;
+    }
+  }
+}
+.dot {
+  color: $pink;
+}

@@ -5,8 +5,9 @@ import * as yup from "yup";
 import classes from "../_login.module.scss";
 import { Button, Input } from "components";
 import Link from "next/link";
-import axios from "axios";
+import { AxiosResponse } from "axios";
 import { useAPIMutation } from "hooks";
+import toast from "react-hot-toast";
 
 type FormValues = {
   emailOrUsername: string;
@@ -41,7 +42,13 @@ const Form = () => {
       mutation = loginByUserNameMutation;
     }
 
-    mutation.mutate({ emailOrUsername, password });
+    const mutationPromise = mutation.mutateAsync({ emailOrUsername, password });
+
+    toast.promise(mutationPromise, {
+      loading: "Iltimos kuting...",
+      error: (error: AxiosResponse<any>) => error.data?.message || "Muvafaqqiyatsiz urinish",
+      success: "Kirish muvafaqqiyatli amalga oshirildi",
+    });
   });
 
   return (
@@ -55,11 +62,7 @@ const Form = () => {
           style={errors.emailOrUsername ? { borderColor: "red" } : undefined}
           {...register("emailOrUsername")}
         />
-        {errors.emailOrUsername ? (
-          <p className={cn(classes["error-msg"])}>
-            {errors.emailOrUsername?.message}
-          </p>
-        ) : null}
+        {errors.emailOrUsername ? <p className={cn(classes["error-msg"])}>{errors.emailOrUsername?.message}</p> : null}
 
         <Input
           label="Parol"
@@ -68,9 +71,7 @@ const Form = () => {
           style={errors.password ? { borderColor: "red" } : undefined}
           {...register("password")}
         />
-        {errors.password ? (
-          <p className={cn(classes["error-msg"])}>{errors.password?.message}</p>
-        ) : null}
+        {errors.password ? <p className={cn(classes["error-msg"])}>{errors.password?.message}</p> : null}
 
         <Button isLarge color="blue" type="submit" className="mt-5">
           Davom etish

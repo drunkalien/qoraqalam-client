@@ -3,6 +3,7 @@
 .button {
   padding: 8px 15px;
   border-radius: 5px;
+  border: none;
   cursor: pointer;
   transition: background 0.25s ease, border 0.2s ease;
   &:focus {
@@ -25,6 +26,7 @@
 .white {
   background-color: $white;
   color: $black;
+  border: none;
   &:hover {
     background-color: $white_hovered;
     border-color: transparent;

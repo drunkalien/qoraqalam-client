@@ -11,8 +11,15 @@ const Footer = () => {
         <Link href="/">
           <a>
             <div className={cn(classes["first-child"])}>
-              <Icons.LogoWhite />
-              <p>qoraqalam.uz</p>
+              <Link href="/">
+                <a className={classes.logo}>
+                  <Icons.LogoWhite />
+                  <span className={classes["logo-text"]}>
+                    <span className={classes.text}>qoraqalam</span>
+                    <span className={cn(classes.dot)}>.</span>
+                  </span>
+                </a>
+              </Link>
             </div>
           </a>
         </Link>

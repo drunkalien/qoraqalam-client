@@ -5,8 +5,6 @@ export const requestInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
 
-console.log(process.env.NEXT_PUBLIC_BASE_URL);
-
 requestInstance.interceptors.request.use((config) => {
   const token = window.localStorage.getItem("token");
 

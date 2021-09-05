@@ -45,7 +45,6 @@ const Form = () => {
         console.log(response);
       })
       .catch((err) => console.log(err));
-    // console.log(data);
   }
 
   return (
