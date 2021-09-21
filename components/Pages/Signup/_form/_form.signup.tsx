@@ -34,7 +34,7 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver<any>(schema),
   });
 
   // mutation
