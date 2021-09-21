@@ -5,6 +5,11 @@ import { Searchbar, Button } from "components";
 import Link from "next/link";
 
 const Header = () => {
+  let token;
+  if (typeof window !== "undefined") {
+    token = window.localStorage.getItem("token");
+  }
+
   return (
     <div className={classes.container}>
       <Link href="/">
@@ -19,22 +24,30 @@ const Header = () => {
         </a>
       </Link>
       <Searchbar />
-      <div className={classes.buttons}>
-        <Link href="/login">
+      {token ? (
+        <Link href="/editor">
           <a>
-            <Button color="white" variant="outline">
-              Kirish
-            </Button>
+            <Button>Maqola yozish</Button>
           </a>
         </Link>
-        <Link href="/signup">
-          <a>
-            <Button color="black" variant="filled">
-              Roʻyxatdan oʻtish
-            </Button>
-          </a>
-        </Link>
-      </div>
+      ) : (
+        <div className={classes.buttons}>
+          <Link href="/login">
+            <a>
+              <Button color="white" variant="outline">
+                Kirish
+              </Button>
+            </a>
+          </Link>
+          <Link href="/signup">
+            <a>
+              <Button color="black" variant="filled">
+                Roʻyxatdan oʻtish
+              </Button>
+            </a>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
