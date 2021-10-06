@@ -16,7 +16,7 @@ type FormValues = {
 };
 
 const schema = yup.object().shape({
-  emailOrUsername: yup.string().required("Email yoki Usernameni kiriting!"),
+  emailOrUsername: yup.string().required("Email yoki foydalanuvchi ismini kiriting!"),
   password: yup.string().required("Parolni kiriting!"),
 });
 
@@ -26,7 +26,7 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver<any>(schema),
   });
   const router = useRouter();
 
@@ -38,13 +38,17 @@ const Form = () => {
 
   const onSubmit = handleSubmit(({ emailOrUsername, password }) => {
     let mutation;
+    let loginOptionKey: "email" | "username";
+
     if (emailOrUsername.includes("@")) {
       mutation = loginByEmailMutation;
+      loginOptionKey = "email";
     } else {
       mutation = loginByUserNameMutation;
+      loginOptionKey = "username";
     }
 
-    const mutationPromise = mutation.mutateAsync({ emailOrUsername, password });
+    const mutationPromise = mutation.mutateAsync({ [loginOptionKey]: emailOrUsername, password });
 
     toast
       .promise(mutationPromise, {
@@ -63,7 +67,7 @@ const Form = () => {
       <form className={cn(classes.form)} onSubmit={onSubmit}>
         <h1 className={cn(classes["form-heading"])}>Kirish</h1>
         <Input
-          label="Email yoki username"
+          label="Email yoki foydalanuvchi ismi"
           type="text"
           placeholder="bu@misol.uz"
           style={errors.emailOrUsername ? { borderColor: "red" } : undefined}
@@ -80,7 +84,13 @@ const Form = () => {
         />
         {errors.password ? <p className={cn(classes["error-msg"])}>{errors.password?.message}</p> : null}
 
-        <Button isLarge color="blue" type="submit" className="mt-5">
+        <Button
+          isLarge
+          color="blue"
+          type="submit"
+          className="mt-5"
+          disabled={loginByEmailMutation.isLoading || loginByUserNameMutation.isLoading}
+        >
           Davom etish
         </Button>
         <p className="mt-10 text-center fz-14">

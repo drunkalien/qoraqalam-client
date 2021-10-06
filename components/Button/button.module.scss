@@ -13,6 +13,11 @@
     outline-offset: 1px;
     filter: saturate(0.8);
   }
+  &:disabled,
+  &:disabled:hover {
+    background: $gray !important;
+    cursor: default;
+  }
 }
 
 .black {

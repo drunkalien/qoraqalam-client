@@ -3,15 +3,19 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Link from "next/link";
+<<<<<<< HEAD
 import { useRouter } from "next/router";
 
 import { Button, Input } from "components";
 
 import classes from "../_signup.module.scss";
+=======
+import { AxiosResponse } from "axios";
+>>>>>>> 75ca5ccbb98e25d98e6ba5403cc14e0e4608da24
 import { useAPIMutation } from "hooks";
 import toast from "react-hot-toast";
 
-type Data = {
+type FormValues = {
   email: string;
   username: string;
   password: string;
@@ -22,11 +26,11 @@ const schema = yup.object().shape({
   email: yup.string().email("Noto'g'ri email!").required("Email majburiy!"),
   username: yup
     .string()
-    .min(4, "Username 4ta belgidan uzun bo'lishi kerak!")
-    .max(10, "Username 10ta belgidan oshmasligi kerak!")
+    .min(4, "Foydalanuvchi ismi 4ta belgidan uzun bo'lishi kerak!")
+    .max(10, "Foydalanuvchi ismi 10ta belgidan oshmasligi kerak!")
     .lowercase()
-    .required("Username majburiy!"),
-  password: yup.string().min(8, "Parol kamida 8ta belgi bo'lishi kerak"),
+    .required("Foydalanuvchi ismi majburiy!"),
+  password: yup.string().min(8, "Parol kamida 8ta belgi bo'lishi kerak!"),
   passwordConfirm: yup.string().oneOf([yup.ref("password"), "Parollar mos kelmadi!"]),
 });
 
@@ -37,8 +41,8 @@ const Form = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
+  } = useForm<FormValues>({
+    resolver: yupResolver<any>(schema),
   });
 
   function submit(data: Data) {
@@ -58,7 +62,7 @@ const Form = () => {
 
   return (
     <div className={cn(classes["form-container"])}>
-      <form className={cn(classes.form)} onSubmit={handleSubmit(submit)}>
+      <form className={cn(classes.form)} onSubmit={onSubmit}>
         <h1 className={cn(classes["form-heading"])}>Roʻyxatdan oʻtish</h1>
         <Input
           label="Email"
@@ -70,9 +74,9 @@ const Form = () => {
         {errors.email ? <p className={cn(classes["error-msg"])}>{errors.email?.message}</p> : null}
 
         <Input
-          label="Username"
+          label="Foydalanuvchi ismi"
           type="text"
-          placeholder="Usernameni kiriting"
+          placeholder="Foydalanuvchi ismini kiriting"
           style={errors.username ? { borderColor: "red" } : undefined}
           {...register("username")}
         />
