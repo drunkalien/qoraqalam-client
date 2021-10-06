@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import dynamic from "next/dynamic";
+
+import { Button } from "components";
+
 import "react-quill/dist/quill.snow.css";
 
 const ReactQuill = dynamic(import("react-quill"), {
@@ -7,22 +10,32 @@ const ReactQuill = dynamic(import("react-quill"), {
 });
 
 const Editor = () => {
-  const [state, setState] = useState("");
+  const [content, setContent] = useState("");
+
+  const onSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+
+    setContent("");
+  };
 
   function handleChange(value: string) {
-    setState(value);
+    setContent(value);
   }
 
   return (
-    <ReactQuill
-      theme="snow"
-      value={state}
-      onChange={handleChange}
-      onChangeSelection={(e) => {
-        const selectedText = state.slice(e?.index + 3, e?.index + e?.length + 3);
-        console.log(selectedText);
-      }}
-    />
+    <>
+      <ReactQuill
+        theme="snow"
+        value={content}
+        onChange={handleChange}
+        onChangeSelection={(e) => {
+          const selectedText = content.slice(e?.index + 3, e?.index + e?.length + 3);
+          console.log(selectedText);
+        }}
+      />
+
+      <Button onClick={onSubmit}>{"Jo'natish"}</Button>
+    </>
   );
 };
 

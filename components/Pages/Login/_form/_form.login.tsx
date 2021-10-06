@@ -8,6 +8,7 @@ import Link from "next/link";
 import { AxiosResponse } from "axios";
 import { useAPIMutation } from "hooks";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
 type FormValues = {
   emailOrUsername: string;
@@ -27,6 +28,7 @@ const Form = () => {
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
+  const router = useRouter();
 
   // mutations
   const loginByEmailMutation = useAPIMutation({ url: "auth/loginByEmail" });
@@ -44,11 +46,16 @@ const Form = () => {
 
     const mutationPromise = mutation.mutateAsync({ emailOrUsername, password });
 
-    toast.promise(mutationPromise, {
-      loading: "Iltimos kuting...",
-      error: (error: AxiosResponse<any>) => error.data?.message || "Muvafaqqiyatsiz urinish",
-      success: "Kirish muvafaqqiyatli amalga oshirildi",
-    });
+    toast
+      .promise(mutationPromise, {
+        loading: "Iltimos kuting...",
+        error: (error: AxiosResponse<any>) => error.data?.message || "Muvafaqqiyatsiz urinish",
+        success: "Kirish muvafaqqiyatli amalga oshirildi",
+      })
+      .then((res) => {
+        window.localStorage.setItem("token", res.data.doc.token);
+        router.push("/");
+      });
   });
 
   return (

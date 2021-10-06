@@ -2,10 +2,14 @@ import cn from "classnames";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import classes from "../_signup.module.scss";
-import { Button, Input } from "components";
 import Link from "next/link";
-import axios from "axios";
+import { useRouter } from "next/router";
+
+import { Button, Input } from "components";
+
+import classes from "../_signup.module.scss";
+import { useAPIMutation } from "hooks";
+import toast from "react-hot-toast";
 
 type Data = {
   email: string;
@@ -27,6 +31,8 @@ const schema = yup.object().shape({
 });
 
 const Form = () => {
+  const SignUpMutation = useAPIMutation({ url: "auth/signup" });
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -36,13 +42,18 @@ const Form = () => {
   });
 
   function submit(data: Data) {
-    axios
-      .post("http://localhost:5000/api/v1/auth/signup", data)
-      .then((response) => {
-        window.localStorage.setItem("token", response.data.doc.token);
-        console.log(response);
+    const mutationPromise = SignUpMutation.mutateAsync(data);
+
+    toast
+      .promise(mutationPromise, {
+        loading: "Kuting...",
+        success: "Muvaffaqiyatli",
+        error: "Muvaffaqiyatsiz",
       })
-      .catch((err) => console.log(err));
+      .then((res) => {
+        window.localStorage.setItem("token", res.data.doc.token);
+        router.push("/");
+      });
   }
 
   return (

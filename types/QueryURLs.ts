@@ -1,3 +1,3 @@
-type QueryURLs = "/user";
+type QueryURLs = "/users/user";
 
 export default QueryURLs;

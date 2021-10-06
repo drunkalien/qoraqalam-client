@@ -30,9 +30,13 @@ const Footer = () => {
             <li>{<Icons.Facebook />}</li>
             <li>{<Icons.Instagram />}</li>
           </ul>
-          <Button variant="filled" color="white">
-            Maqola Yozish
-          </Button>
+          <Link href="/editor">
+            <a>
+              <Button variant="filled" color="white">
+                Maqola Yozish
+              </Button>
+            </a>
+          </Link>
         </div>
       </div>
     </footer>
