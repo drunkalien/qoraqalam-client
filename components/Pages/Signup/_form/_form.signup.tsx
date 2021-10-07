@@ -53,7 +53,8 @@ const Form = () => {
       .then((res) => {
         window.localStorage.setItem("token", res.data.doc.token);
         router.push("/");
-      });
+      })
+      .catch(() => {});
   }
 
   return (

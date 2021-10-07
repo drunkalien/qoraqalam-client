@@ -38,17 +38,14 @@ const Form = () => {
 
   const onSubmit = handleSubmit(({ emailOrUsername, password }) => {
     let mutation;
-    let loginOptionKey: "email" | "username";
 
     if (emailOrUsername.includes("@")) {
       mutation = loginByEmailMutation;
-      loginOptionKey = "email";
     } else {
       mutation = loginByUserNameMutation;
-      loginOptionKey = "username";
     }
 
-    const mutationPromise = mutation.mutateAsync({ [loginOptionKey]: emailOrUsername, password });
+    const mutationPromise = mutation.mutateAsync({ emailOrUsername: emailOrUsername, password });
 
     toast
       .promise(mutationPromise, {
@@ -59,7 +56,8 @@ const Form = () => {
       .then((res) => {
         window.localStorage.setItem("token", res.data.doc.token);
         router.push("/");
-      });
+      })
+      .catch(() => {});
   });
 
   return (
