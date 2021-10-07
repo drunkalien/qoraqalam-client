@@ -3,15 +3,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Link from "next/link";
-<<<<<<< HEAD
 import { useRouter } from "next/router";
 
 import { Button, Input } from "components";
 
 import classes from "../_signup.module.scss";
-=======
-import { AxiosResponse } from "axios";
->>>>>>> 75ca5ccbb98e25d98e6ba5403cc14e0e4608da24
 import { useAPIMutation } from "hooks";
 import toast from "react-hot-toast";
 
@@ -45,7 +41,7 @@ const Form = () => {
     resolver: yupResolver<any>(schema),
   });
 
-  function submit(data: Data) {
+  function submit(data: FormValues) {
     const mutationPromise = SignUpMutation.mutateAsync(data);
 
     toast
@@ -62,7 +58,7 @@ const Form = () => {
 
   return (
     <div className={cn(classes["form-container"])}>
-      <form className={cn(classes.form)} onSubmit={onSubmit}>
+      <form className={cn(classes.form)} onSubmit={handleSubmit(submit)}>
         <h1 className={cn(classes["form-heading"])}>Roʻyxatdan oʻtish</h1>
         <Input
           label="Email"
