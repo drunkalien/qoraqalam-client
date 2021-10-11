@@ -11,6 +11,7 @@ export { default as Page } from "./Layout";
 export { default as User } from "./User";
 export { default as Footer } from "./Footer";
 export { default as ProfilePic } from "./ProfilePic";
+export { default as InfoCard } from "./InfoCard";
 
 // Pages
-export { HomePage, PostPage, LoginPage, SignupPage } from "./Pages";
+export { HomePage, PostPage, LoginPage, SignupPage, ProfilePage } from "./Pages";

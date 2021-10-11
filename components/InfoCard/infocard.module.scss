@@ -1,0 +1,33 @@
+.card {
+  padding: 20px 30px;
+  width: 100%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-container {
+  margin-left: 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}

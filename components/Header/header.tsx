@@ -4,18 +4,15 @@ import { Logo } from "../../assets/icons";
 import { Searchbar, Button, ProfilePic } from "components";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
 import { useAPIQuery } from "../../hooks";
 
 const Header = () => {
-  let token;
-  if (typeof window !== "undefined") {
-    token = window.localStorage.getItem("token");
-  }
-  const [logout, setLogout] = useState(false);
+  const router = useRouter();
+
   const [userData, setUserData] = useState<any>();
   const userQuery = useAPIQuery({ url: "/users/user" });
-
-  // useEffect(() => {}, [logout]);
 
   useEffect(() => {
     setUserData(userQuery.data?.data.user);
@@ -50,7 +47,7 @@ const Header = () => {
           >
             Chiqish
           </Button>
-          <div className={classes.avatar}>
+          <div className={classes.avatar} onClick={() => router.push("/me")}>
             <ProfilePic src={userData?.user.avatar} />
           </div>
         </div>
