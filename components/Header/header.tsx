@@ -43,6 +43,7 @@ const Header = () => {
             onClick={() => {
               window.localStorage.removeItem("token");
               setUserData(null);
+              router.push("/");
             }}
           >
             Chiqish

@@ -21,7 +21,7 @@ const ProfilePage = () => {
     if (!token) {
       router.push("/");
     }
-  });
+  }, []);
 
   useEffect(() => {
     setUserData(userQuery.data?.data.user);
