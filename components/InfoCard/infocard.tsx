@@ -1,4 +1,5 @@
 import cn from "classnames";
+import { useRouter } from "next/router";
 
 import classes from "./infocard.module.scss";
 import { Button } from "..";
@@ -8,25 +9,43 @@ type Props = {
   username: string;
   followers: string[];
   articles: string[];
+  email: string;
 };
 
-const InfoCard = ({ avatar, username, followers, articles }: Props) => {
+const InfoCard = ({ avatar, username, followers, articles, email }: Props) => {
+  const router = useRouter();
   return (
     <div className={cn(classes.card)}>
       <div className={cn(classes.container)}>
-        <div className={cn(classes["data-container"])}>
+        <div className={cn(classes["card-container"])}>
           <img className={cn(classes.avatar)} src={avatar} alt="avatar" />
           <div className={cn(classes["info-container"])}>
             <h3 className={cn(classes.username)}>{username}</h3>
-            <p className={cn(classes.data)}>
-              Obunachilar soni: <strong>{followers.length}ta</strong>
-            </p>
-            <p className={cn(classes.data)}>
-              Maqolalar soni: <strong>{articles.length}ta</strong>
-            </p>
+            <p className={cn(classes.email)}>{email}</p>
+            <div className={cn(classes["data-container"])}>
+              <div>
+                <p className={cn(classes["data-label"])}>Obunachilar soni:</p>
+                <p className={cn(classes["data-label"])}>Maqolalar soni:</p>
+              </div>
+              <div className={cn(classes.data)}>
+                <p className={cn(classes.stats)}>{followers.length} ta</p>
+                <p className={cn(classes.stats)}>{articles.length} ta</p>
+              </div>
+            </div>
           </div>
         </div>
-        <Button>{"O'zgartirish kiritish"}</Button>
+        <div className={cn(classes["button-container"])}>
+          <Button>{"O'zgartirish kiritish"}</Button>
+          <Button
+            color="pink"
+            onClick={() => {
+              router.push("/");
+              localStorage.removeItem("token");
+            }}
+          >
+            Chiqish
+          </Button>
+        </div>
       </div>
     </div>
   );
