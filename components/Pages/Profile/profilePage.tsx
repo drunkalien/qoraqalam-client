@@ -26,13 +26,19 @@ const ProfilePage = () => {
   useEffect(() => {
     setUserData(userQuery.data?.data.user);
   }, [userQuery.data?.data.user]);
+  console.log(userData);
 
   const avatar = userData ? userData.user.avatar : "";
+  const username = userData ? userData.user.username : "";
+  // const followers = userData ? userData.user.followers : "";
+  const articles = userData ? userData.user.articles : "";
+  const email = userData ? userData.user.email : "";
+  console.log(userData);
   return (
     <Page>
       <div className={cn(classes["data-container"])}>
         <h2 className={cn(classes.heading)}>{"Ma'lumotlarim"}</h2>
-        <InfoCard avatar={avatar} articles={articles} followers={followers} username="john_doe" />
+        <InfoCard avatar={avatar} articles={articles} followers={followers} username={username} email={email} />
       </div>
       <div className={cn(classes["article-container"])}>
         <h2 className={cn(classes.heading)}>Maqolalarim</h2>
