@@ -48,6 +48,16 @@
   }
 }
 
+.pink {
+  background-color: $pink !important;
+  color: $white !important;
+  border: 0 !important;
+  &:hover,
+  &:focus {
+    background: $pink_hovered !important;
+  }
+}
+
 .large {
   padding: 12px;
   font-weight: 700;

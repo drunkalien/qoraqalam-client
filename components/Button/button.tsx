@@ -3,7 +3,7 @@ import cn from "classnames";
 import classes from "./button.module.scss";
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  color?: "black" | "white" | "blue";
+  color?: "black" | "white" | "blue" | "pink";
   variant?: "outline" | "filled";
   isLarge?: boolean;
   className?: string;
