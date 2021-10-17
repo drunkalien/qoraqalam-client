@@ -39,15 +39,6 @@ const Header = () => {
               <Button>Maqola yozish</Button>
             </a>
           </Link>
-          <Button
-            onClick={() => {
-              window.localStorage.removeItem("token");
-              setUserData(null);
-              router.push("/");
-            }}
-          >
-            Chiqish
-          </Button>
           <div className={classes.avatar} onClick={() => router.push("/me")}>
             <ProfilePic src={userData?.user.avatar} />
           </div>
