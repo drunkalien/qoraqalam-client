@@ -4,6 +4,7 @@ import { QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { Toaster } from "react-hot-toast";
 import { queryClient } from "api";
+import "draft-js/dist/Draft.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
