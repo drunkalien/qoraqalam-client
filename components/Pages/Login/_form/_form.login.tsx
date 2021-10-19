@@ -45,7 +45,7 @@ const Form = () => {
       mutation = loginByUserNameMutation;
     }
 
-    const mutationPromise = mutation.mutateAsync({ emailOrUsername: emailOrUsername, password });
+    const mutationPromise = mutation.mutateAsync({ emailOrUsername, password });
 
     toast
       .promise(mutationPromise, {

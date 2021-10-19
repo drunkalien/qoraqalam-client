@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import cn from "classnames";
 import { useRouter } from "next/router";
 
@@ -10,9 +11,10 @@ type Props = {
   followers: string[];
   articles: string[];
   email: string;
+  setModalState: Dispatch<SetStateAction<boolean>>;
 };
 
-const InfoCard = ({ avatar, username, followers, articles, email }: Props) => {
+const InfoCard = ({ avatar, username, followers, articles, email, setModalState }: Props) => {
   const router = useRouter();
   return (
     <div className={cn(classes.card)}>
@@ -35,7 +37,7 @@ const InfoCard = ({ avatar, username, followers, articles, email }: Props) => {
           </div>
         </div>
         <div className={cn(classes["button-container"])}>
-          <Button>{"O'zgartirish kiritish"}</Button>
+          <Button onClick={() => setModalState(true)}>{"O'zgartirish kiritish"}</Button>
           <Button
             color="pink"
             onClick={() => {

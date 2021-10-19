@@ -1,7 +1,9 @@
 import cn from "classnames";
 import classes from "./profilePage.module.scss";
+import { AnimatePresence } from "framer-motion";
 
 import { InfoCard, PostCard, Page } from "components";
+import Modal from "./_modal";
 
 import posts from "posts";
 import { useAPIQuery } from "hooks";
@@ -15,6 +17,7 @@ const followers = ["follower1"];
 const ProfilePage = () => {
   const userQuery = useAPIQuery({ url: "/users/user" });
   const [userData, setUserData] = useState<any>(null);
+  const [modalState, setMoadlState] = useState<boolean>(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -38,7 +41,14 @@ const ProfilePage = () => {
     <Page>
       <div className={cn(classes["data-container"])}>
         <h2 className={cn(classes.heading)}>{"Ma'lumotlarim"}</h2>
-        <InfoCard avatar={avatar} articles={articles} followers={followers} username={username} email={email} />
+        <InfoCard
+          avatar={avatar}
+          articles={articles}
+          followers={followers}
+          username={username}
+          email={email}
+          setModalState={setMoadlState}
+        />
       </div>
       <div className={cn(classes["article-container"])}>
         <h2 className={cn(classes.heading)}>Maqolalarim</h2>
@@ -50,6 +60,9 @@ const ProfilePage = () => {
           ) : null,
         )}
       </div>
+      <AnimatePresence initial={false} exitBeforeEnter={true} onExitComplete={() => null}>
+        {modalState && <Modal avatar={avatar} modalState={modalState} setModalState={setMoadlState} email={email} username={username} />}
+      </AnimatePresence>
     </Page>
   );
 };
