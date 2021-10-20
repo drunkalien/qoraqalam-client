@@ -27,6 +27,7 @@ const schema = yup.object().shape({
     .min(4, "Foydalanuvchi ismi 4ta belgidan uzun bo'lishi kerak!")
     .max(10, "Foydalanuvchi ismi 10ta belgidan oshmasligi kerak!")
     .lowercase(),
+  avatar: yup.string(),
 });
 
 const Modal = ({ avatar, setModalState, modalState, email, username }: Props) => {
@@ -45,9 +46,10 @@ const Modal = ({ avatar, setModalState, modalState, email, username }: Props) =>
       ...getValues(),
       email,
       username,
+      // avatar,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [email, username]);
+  }, [email, username, avatar]);
 
   console.log(errors);
   const onSubmit = handleSubmit((data: any) => {
@@ -70,8 +72,11 @@ const Modal = ({ avatar, setModalState, modalState, email, username }: Props) =>
             <img src={avatar} alt="avatar" />
           </div>
           <div className={cn(classes["avatar-actions"])}>
-            <Button>Rasm Yuklash</Button>
-            <Button color="pink">{"Rasmni o'chirish"}</Button>
+            <input type="file" id="upload" className={cn(classes.upload)} />
+            <label htmlFor="upload" className={cn(classes.file)} {...register("avatar")}>
+              Rasm Yuklash
+            </label>
+            <Button color="pink">{"Rasmni O'chirish"}</Button>
           </div>
         </div>
         <div className={cn(classes["personal-informations"])}>
