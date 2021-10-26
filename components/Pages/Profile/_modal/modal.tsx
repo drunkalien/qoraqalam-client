@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -20,6 +20,7 @@ type Props = {
   username: string;
 };
 
+// schema of form values
 const schema = yup.object().shape({
   email: yup.string().email(),
   username: yup
@@ -27,8 +28,15 @@ const schema = yup.object().shape({
     .min(4, "Foydalanuvchi ismi 4ta belgidan uzun bo'lishi kerak!")
     .max(10, "Foydalanuvchi ismi 10ta belgidan oshmasligi kerak!")
     .lowercase(),
-  avatar: yup.string(),
+  // avatar: yup.array(),
 });
+
+// formvalue types
+type Values = {
+  email: string;
+  username: string;
+  avatar: File | File[];
+};
 
 const Modal = ({ avatar, setModalState, modalState, email, username }: Props) => {
   const {
@@ -36,8 +44,9 @@ const Modal = ({ avatar, setModalState, modalState, email, username }: Props) =>
     formState: { errors },
     handleSubmit,
     reset,
+    setValue,
     getValues,
-  } = useForm({
+  } = useForm<Values>({
     resolver: yupResolver(schema),
   });
 
@@ -49,7 +58,7 @@ const Modal = ({ avatar, setModalState, modalState, email, username }: Props) =>
       // avatar,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [email, username, avatar]);
+  }, [username]);
 
   console.log(errors);
   const onSubmit = handleSubmit((data: any) => {
@@ -59,12 +68,13 @@ const Modal = ({ avatar, setModalState, modalState, email, username }: Props) =>
 
   return (
     <div className={cn(classes.backdrop)} onClick={() => setModalState(!modalState)}>
-      <motion.div
+      <motion.form
         className={cn(classes["modal-container"])}
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", duration: 0.3 }}
         exit={{ scale: 0.8, opacity: 0, transition: { type: "spring", duration: 0.3 } }}
+        onSubmit={onSubmit}
         onClick={(e) => e.stopPropagation()}
       >
         <div className={cn(classes["avatar-actions-container"])}>
@@ -72,8 +82,9 @@ const Modal = ({ avatar, setModalState, modalState, email, username }: Props) =>
             <img src={avatar} alt="avatar" />
           </div>
           <div className={cn(classes["avatar-actions"])}>
+            {/* TODO: fix image upload */}
             <input type="file" id="upload" className={cn(classes.upload)} />
-            <label htmlFor="upload" className={cn(classes.file)} {...register("avatar")}>
+            <label htmlFor="upload" className={cn(classes.file)}>
               Rasm Yuklash
             </label>
             <Button color="pink">{"Rasmni O'chirish"}</Button>
@@ -81,7 +92,7 @@ const Modal = ({ avatar, setModalState, modalState, email, username }: Props) =>
         </div>
         <div className={cn(classes["personal-informations"])}>
           <h3 className={cn(classes.heading)}>{"Shaxsiy ma'lumotlar"}</h3>
-          <form action="" className={cn(classes.form)} onSubmit={onSubmit}>
+          <div className={cn(classes.form)}>
             <div className={cn(classes.inputs)}>
               <Input label="Email" type="email" style={errors.email ? { borderColor: "red" } : undefined} {...register("email")} />
               <Input label="Username" type="text" style={errors.username ? { borderColor: "red" } : undefined} {...register("username")} />
@@ -101,9 +112,9 @@ const Modal = ({ avatar, setModalState, modalState, email, username }: Props) =>
                 Saqlash
               </Button>
             </div>
-          </form>
+          </div>
         </div>
-      </motion.div>
+      </motion.form>
     </div>
   );
 };

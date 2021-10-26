@@ -1,6 +1,7 @@
 import cn from "classnames";
 import classes from "./profilePage.module.scss";
 import { AnimatePresence } from "framer-motion";
+import { useForm } from "react-hook-form";
 
 import { InfoCard, PostCard, Page } from "components";
 import Modal from "./_modal";
@@ -18,6 +19,7 @@ const ProfilePage = () => {
   const userQuery = useAPIQuery({ url: "/users/user" });
   const [userData, setUserData] = useState<any>(null);
   const [modalState, setMoadlState] = useState<boolean>(false);
+  const { handleSubmit, register } = useForm();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -60,6 +62,14 @@ const ProfilePage = () => {
           ) : null,
         )}
       </div>
+      <form
+        onSubmit={handleSubmit((data) => {
+          console.log(data.file[0].name);
+        })}
+      >
+        <input type="file" {...register("file")} />
+        <button type="submit">Submit</button>
+      </form>
       <AnimatePresence initial={false} exitBeforeEnter={true} onExitComplete={() => null}>
         {modalState && <Modal avatar={avatar} modalState={modalState} setModalState={setMoadlState} email={email} username={username} />}
       </AnimatePresence>
