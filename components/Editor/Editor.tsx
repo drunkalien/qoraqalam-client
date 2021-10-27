@@ -10,7 +10,7 @@ import { Button, Heading } from "components";
 import classes from "./editor.module.scss";
 
 const Editor = () => {
-  const [article, setArticle] = useState<string>("");
+  const [article, setArticle] = useState("");
   const [heading, setHeading] = useState("");
   const [preview, setPreview] = useState(false);
   const { register, handleSubmit } = useForm();
