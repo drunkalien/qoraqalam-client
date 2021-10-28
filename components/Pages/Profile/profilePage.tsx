@@ -1,7 +1,6 @@
 import cn from "classnames";
 import classes from "./profilePage.module.scss";
 import { AnimatePresence } from "framer-motion";
-import { useForm } from "react-hook-form";
 
 import { InfoCard, PostCard, Page } from "components";
 import Modal from "./_modal";
@@ -19,7 +18,6 @@ const ProfilePage = () => {
   const userQuery = useAPIQuery({ url: "/users/user" });
   const [userData, setUserData] = useState<any>(null);
   const [modalState, setMoadlState] = useState<boolean>(false);
-  const { handleSubmit, register } = useForm();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -31,13 +29,13 @@ const ProfilePage = () => {
   useEffect(() => {
     setUserData(userQuery.data?.data.user);
   }, [userQuery.data?.data.user]);
-  console.log(userData);
+  console.log("USERDATA", userData);
 
-  const avatar = userData ? userData.user.avatar : "";
-  const username = userData ? userData.user.username : "";
+  const avatar = userData ? userData.avatar : "";
+  const username = userData ? userData.username : "";
   // const followers = userData ? userData.user.followers : "";
-  const articles = userData ? userData.user.articles : "";
-  const email = userData ? userData.user.email : "";
+  const articles = userData ? userData.articles : "";
+  const email = userData ? userData.email : "";
   console.log(userData);
   return (
     <Page>
@@ -62,14 +60,6 @@ const ProfilePage = () => {
           ) : null,
         )}
       </div>
-      <form
-        onSubmit={handleSubmit((data) => {
-          console.log(data.file[0].name);
-        })}
-      >
-        <input type="file" {...register("file")} />
-        <button type="submit">Submit</button>
-      </form>
       <AnimatePresence initial={false} exitBeforeEnter={true} onExitComplete={() => null}>
         {modalState && <Modal avatar={avatar} modalState={modalState} setModalState={setMoadlState} email={email} username={username} />}
       </AnimatePresence>

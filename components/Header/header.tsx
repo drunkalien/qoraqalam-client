@@ -40,7 +40,7 @@ const Header = () => {
             </a>
           </Link>
           <div className={classes.avatar} onClick={() => router.push("/me")}>
-            <ProfilePic src={userData?.user.avatar} />
+            <ProfilePic src={userData ? userData?.avatar : ""} />
           </div>
         </div>
       ) : (

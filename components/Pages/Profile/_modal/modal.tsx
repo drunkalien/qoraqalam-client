@@ -79,7 +79,7 @@ const Modal = ({ avatar, setModalState, modalState, email, username }: Props) =>
       >
         <div className={cn(classes["avatar-actions-container"])}>
           <div className={cn(classes["avatar-container"])}>
-            <img src={avatar} alt="avatar" />
+            <img src={avatar ? avatar : ""} alt="avatar" />
           </div>
           <div className={cn(classes["avatar-actions"])}>
             {/* TODO: fix image upload */}
