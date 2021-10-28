@@ -99,7 +99,7 @@ const Modal = ({ avatar, setModalState, modalState, email, username }: Props) =>
             </div>
             <div className={cn(classes.buttons)}>
               <Button
-                color="pink"
+                variant="outline"
                 type="button"
                 onClick={() => {
                   setModalState(!modalState);
